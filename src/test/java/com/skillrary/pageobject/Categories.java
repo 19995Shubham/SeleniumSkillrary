@@ -11,32 +11,26 @@ import java.util.Collection;
 import java.util.List;
 
 public class Categories {
-
     WebDriver ldriver;
 
-    public  Categories(WebDriver rdriver)
-    {
+    public Categories(WebDriver rdriver) {
         ldriver = rdriver;
         PageFactory.initElements(rdriver, this);
     }
 
+    @FindBy(xpath = "//a[normalize-space()='CATEGORIES']")
+    private WebElement categoiresBox;  //have to ask
+    @FindBy(xpath = "//ul[@id='category_li']//a")
+    private List<WebElement> categoiresBoxCount;
 
-    @FindBy(xpath = "//a[text() = \"CATEGORIES\"]")
-    WebElement categoiresBox;  //have to ask
-
-    @FindBy(xpath = "//ul[contains(@class, \"dropdown-menu mCustomScrollbar\")]//li")
-    WebElement categoiresBoxCount;
-    public void clickCBox()
-    {
+    public Categories clickCBox() {
         categoiresBox.click();
+        return this;
     }
 
-    public void setCategoiresBoxCount()
-    {
-        List<WebElement> countCB = new ArrayList<>((Collection) categoiresBoxCount);
-        countCB.size();
+    public Categories setCategoiresBoxCount() {
+        System.out.println("Total Elements : " + categoiresBoxCount.size());
+        categoiresBoxCount.forEach(e -> System.out.println(e.getText()));
+        return this;
     }
-
-
-
 }

@@ -11,15 +11,9 @@ public class Tc_LoginTest_001 extends BaseClass
     public void loginTest()
    {
        driver.get(baseUrl);
-
-        lp = new LoginPage(driver);
+       lp = new LoginPage(driver);
        lp.setUserName(userName);
        lp.setPassword(password);
        lp.clickSubmit();
-
-
-
    }
-
-
 }
