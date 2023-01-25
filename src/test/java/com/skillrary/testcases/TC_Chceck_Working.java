@@ -7,11 +7,9 @@ public class TC_Chceck_Working extends CheckBase {
 
     @Test
     public void categoriesTest() {
-
-
-
-    Categories cg = new Categories(driver);
-    cg.clickCBox();
-    cg.setCategoiresBoxCount();
-}
+        driver.get(baseurl1);
+        Categories cg = new Categories(driver);
+        cg.clickCBox()
+                .setCategoiresBoxCount();
+    }
 }

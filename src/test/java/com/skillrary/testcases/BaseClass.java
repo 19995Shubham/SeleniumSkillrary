@@ -6,6 +6,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 
+import java.time.Duration;
 import java.util.logging.Logger;
 
 public class BaseClass {
@@ -13,27 +14,17 @@ public class BaseClass {
     String baseUrl = "https://opensource-demo.orangehrmlive.com/web/index.php/auth/login";
     String userName = "Admin";
     String password = "admin123";
-
-
     public static WebDriver driver;
-  // public static Logger logger;
+
     @BeforeClass
-    public void setup()
-    {
-      //  System.setProperty("Webdriver.chrome.driver",System.getProperty("user dir") +"C:\\Users\\ShubhamT\\IdeaProjects\\SeleniumSkillrary\\Drivers\\chromedriver.exe");
+    public void setup() {
         driver = new ChromeDriver();
-
-        // logger = Logger.getLogger("SeleniumSkillrary");
-      //  PropertyConfigurator.configure("Log4J.properties");
-
-
+        driver.manage().window().maximize();
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
     }
+
     @AfterClass
-    public void tearDown()
-   {
-    driver.quit();
-   }
-
-
-
+    public void tearDown() {
+        driver.quit();
+    }
 }
